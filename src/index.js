@@ -10,4 +10,4 @@ async function getWeather(city) {
   console.log(weatherData);
 }
 
-getWeather("Ankara");
+getWeather("Paris");
