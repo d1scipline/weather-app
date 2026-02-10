@@ -77,10 +77,10 @@ function changeFC() {
 
     for (let i = 0; i < dayCards.length; i++) {
       let mint = convertToF(
-        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
+        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
       );
       let maxt = convertToF(
-        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
+        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
       );
       dayCards[i].innerText = `${maxt}°/${mint}°`;
     }
@@ -98,10 +98,10 @@ function changeFC() {
     windText.innerText = `${convertMilesToKm(windText.innerText.split(" ")[0])} km/h`;
     for (let i = 0; i < dayCards.length; i++) {
       let mint = convertToC(
-        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
+        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
       );
       let maxt = convertToC(
-        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
+        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
       );
       dayCards[i].innerText = `${maxt}°/${mint}°`;
     }
@@ -383,3 +383,5 @@ document.addEventListener("keypress", (e) => {
 cityInput.addEventListener("input", () => {
   cityInput.setCustomValidity("");
 });
+
+getWeather("Paris");
