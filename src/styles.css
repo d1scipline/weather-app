@@ -303,3 +303,24 @@ input:focus {
 #cf-button:active {
   background-color: #5483c5;
 }
+
+.loading-div,
+.error-div {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-img,
+.error-img {
+  height: 15rem;
+  width: 15rem;
+}
+
+.loading-span,
+.error-div {
+  font-size: xx-large;
+  font-weight: 600;
+}

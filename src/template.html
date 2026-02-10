@@ -13,85 +13,13 @@
           placeholder="Search for a city..."
           name="search-input"
           id="search-input"
+          format="c"
           required
         />
         <button id="city-search-btn">Search</button>
       </div>
 
-      <div id="data-container">
-        <h1 class="city">Paris</h1>
-
-        <hr />
-
-        <div class="display-container">
-          <div class="temparature-display">
-            <div class="temparature-text">
-              <div class="temparature-number">21</div>
-              <div class="temparature-degree">°C</div>
-            </div>
-            <span class="weather-status">Pratially Cloud</span>
-          </div>
-          <div class="icon-display">
-            <img
-              class="weather-icon"
-              src="assets/weather-icons/clear-day.svg"
-            />
-          </div>
-          <div class="cf-button">
-            <button id="cf-button">°C/°F</button>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="details-container">
-          <div class="detail-card humidity">
-            <img src="assets/ui-icons/droplet.svg" />
-            <span id="humidity-text">Humidity: 54%</span>
-          </div>
-          <div class="detail-card feels-like">
-            <img src="assets/ui-icons/feels_like.svg" />
-            <span id="feels-like-text">Feels like: 19°C</span>
-          </div>
-          <div class="detail-card wind">
-            <img src="assets/ui-icons/wind.svg" />
-            <span id="wind-text">12 km/h</span>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="next-days-container">
-          <div class="day-card">
-            <span class="day-text">Tue</span>
-            <img class="day-icon" src="assets/weather-icons/clear-day.svg" />
-            <span class="day-temp">24°/17°</span>
-          </div>
-          <div class="day-card">
-            <span class="day-text">Wed</span>
-            <img class="day-icon" src="assets/weather-icons/fog.svg" />
-            <span class="day-temp">24°/17°</span>
-          </div>
-          <div class="day-card">
-            <span class="day-text">Thu</span>
-            <img
-              class="day-icon"
-              src="assets/weather-icons/partly-cloudy-day.svg"
-            />
-            <span class="day-temp">24°/17°</span>
-          </div>
-          <div class="day-card">
-            <span class="day-text">Fri</span>
-            <img class="day-icon" src="assets/weather-icons/snow.svg" />
-            <span class="day-temp">24°/17°</span>
-          </div>
-          <div class="day-card">
-            <span class="day-text">Sat</span>
-            <img class="day-icon" src="assets/weather-icons/rain.svg" />
-            <span class="day-temp">24°/17°</span>
-          </div>
-        </div>
-      </div>
+      <div id="data-container"></div>
     </div>
   </body>
 </html>
