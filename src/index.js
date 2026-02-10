@@ -44,13 +44,78 @@ function convertToC(temp) {
   return Math.round(((temp - 32) * 5) / 9);
 }
 
+function convertToF(temp) {
+  return Math.round((temp * 9) / 5 + 32);
+}
+
 function changeFC() {
-  console.log("changed");
+  let unit = cityInput.getAttribute("format");
+  let temparatureNumber =
+    document.getElementsByClassName("temparature-number")[0];
+  let temparatureDegree =
+    document.getElementsByClassName("temparature-degree")[0];
+
+  let feelsLikeText = document.getElementById("feels-like-text");
+
+  let windText = document.getElementById("wind-text");
+
+  let dayCards = document.getElementsByClassName("day-temp");
+
+  if (unit == "c") {
+    cityInput.setAttribute("format", "f");
+
+    temparatureDegree.innerText = "°F";
+    temparatureNumber.innerText = convertToF(
+      new Number(temparatureNumber.innerText),
+    );
+
+    feelsLikeText.innerText = `Feels like: ${convertToF(
+      new Number(feelsLikeText.innerText.split(" ")[2].split("°")[0]),
+    )}°F`;
+
+    windText.innerText = `${convertKmToMiles(windText.innerText.split(" ")[0])} mph`;
+
+    for (let i = 0; i < dayCards.length; i++) {
+      let mint = convertToF(
+        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
+      );
+      let maxt = convertToF(
+        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
+      );
+      dayCards[i].innerText = `${maxt}°/${mint}°`;
+    }
+  } else {
+    cityInput.setAttribute("format", "c");
+    temparatureDegree.innerText = "°C";
+    temparatureNumber.innerText = convertToC(
+      new Number(temparatureNumber.innerText),
+    );
+
+    feelsLikeText.innerText = `Feels like: ${convertToC(
+      new Number(feelsLikeText.innerText.split(" ")[2].split("°")[0]),
+    )}°C`;
+
+    windText.innerText = `${convertMilesToKm(windText.innerText.split(" ")[0])} km/h`;
+    for (let i = 0; i < dayCards.length; i++) {
+      let mint = convertToC(
+        new Number(dayCards[i].innerText.split("/")[0].replace("°", "")),
+      );
+      let maxt = convertToC(
+        new Number(dayCards[i].innerText.split("/")[1].replace("°", "")),
+      );
+      dayCards[i].innerText = `${maxt}°/${mint}°`;
+    }
+  }
 }
 
 function convertMilesToKm(miles) {
   const km = miles * 1.60934;
   return km.toFixed(1);
+}
+
+function convertKmToMiles(km) {
+  const miles = km / 1.60934;
+  return miles.toFixed(1);
 }
 
 function renderCity(city) {
@@ -297,7 +362,6 @@ searchButton.addEventListener("click", () => {
     cityInput.setCustomValidity("You must enter a city name!");
     cityInput.reportValidity();
   } else {
-    console.log(cityInput.value);
     getWeather(cityInput.value);
     cityInput.value = "";
   }
