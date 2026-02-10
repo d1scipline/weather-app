@@ -293,6 +293,29 @@ async function getWeather(city) {
 }
 
 searchButton.addEventListener("click", () => {
-  getWeather(cityInput.value);
-  cityInput.value = "";
+  if (cityInput.value.trim() == "" || cityInput.value.trim() == null) {
+    cityInput.setCustomValidity("You must enter a city name!");
+    cityInput.reportValidity();
+  } else {
+    console.log(cityInput.value);
+    getWeather(cityInput.value);
+    cityInput.value = "";
+  }
+});
+
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    if (cityInput.value.trim() == "" || cityInput.value.trim() == null) {
+      cityInput.setCustomValidity("You must enter a city name!");
+      cityInput.reportValidity();
+    } else {
+      console.log(cityInput.value);
+      getWeather(cityInput.value);
+      cityInput.value = "";
+    }
+  }
+});
+
+cityInput.addEventListener("input", () => {
+  cityInput.setCustomValidity("");
 });
